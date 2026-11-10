@@ -6,7 +6,7 @@ export const post = {
   date: '2026-09-22',
   title: 'A Week of Wandering in Kyoto',
   description:
-    'A travel journal about Kyoto: taking the long way, noticing small details, and leaving room for unplanned stops.',
+    'A week of slow mornings, quiet gardens, and side streets in Kyoto. A photo journal about taking the long way, noticing the small details, and leaving room in the itinerary for unplanned moments.',
   coverImage:
     'https://images.unsplash.com/photo-1592368365898-f96c398d5469?w=900&auto=format',
 } satisfies PostMeta

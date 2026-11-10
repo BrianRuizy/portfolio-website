@@ -13,7 +13,7 @@ import { Portrait, SocialLinksEnter } from '@/app/about/Portrait'
 import { createPageMetadata } from '@/lib/metadata'
 import { cn } from '@/lib/utils'
 
-const heroTitle = 'A little about Brian.'
+const heroTitle = 'A little about me.'
 
 function SocialLink({
   className,
