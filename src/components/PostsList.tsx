@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { formatDate } from '@/lib/formatDate'
 import { useSearchParams } from 'next/navigation'
 
@@ -61,20 +60,6 @@ function PostItem({ post }: { post: Post }) {
         {formatDate(post.date)}
       </time>
       <ContentCard as="article" className="md:col-span-3">
-        {post.coverImage && (
-          <div className="relative z-10 mb-4 h-24 w-36 overflow-hidden rounded-lg bg-muted ring-1 ring-border sm:h-28 sm:w-44">
-            <Image
-              src={post.coverImage}
-              alt=""
-              fill
-              sizes="176px"
-              unoptimized={post.coverImage.startsWith(
-                'https://images.unsplash.com',
-              )}
-              className="object-cover"
-            />
-          </div>
-        )}
         <ContentCardTitle
           as="h3"
           href={post.href}
