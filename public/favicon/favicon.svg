@@ -1,1 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><image href="/favicon/web-app-manifest-512x512.png" width="512" height="512"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#343434" />
+  <path d="M20 15h13c9 0 14 4 14 11 0 5-3 8-7 9 5 1 8 5 8 10 0 8-6 13-16 13H20V15Zm10 8v9h3c3 0 5-2 5-5s-2-4-5-4h-3Zm0 17v10h4c3 0 5-2 5-5s-2-5-5-5h-4Z" fill="#fff" />
+</svg>

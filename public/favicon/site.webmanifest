@@ -1,18 +1,6 @@
 {
-  "name": "Brian Ruiz",
-  "short_name": "Brian Ruiz",
-  "icons": [
-    {
-      "src": "/favicon/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
+  "name": "Personal Portfolio",
+  "short_name": "Portfolio",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone"

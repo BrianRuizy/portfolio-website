@@ -10,8 +10,8 @@ export async function GET(req: Request) {
   }
 
   let author = {
-    name: 'Brian Ruiz',
-    email: 'brian@b-r.io',
+    name: 'Your Name',
+    email: 'you@example.com',
   }
 
   let feed = new Feed({
@@ -30,10 +30,10 @@ export async function GET(req: Request) {
   })
 
   let postIds = require
-    .context('../writing', true, /\/page\.mdx$/)
+    .context('../writing', true, /\/post\.ts$/)
     .keys()
     .filter((key) => key.startsWith('./'))
-    .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
+    .map((key) => key.slice(2).replace(/\/post\.ts$/, ''))
 
   for (let id of postIds) {
     let url = String(new URL(`/writing/${id}`, req.url))

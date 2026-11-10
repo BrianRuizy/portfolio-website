@@ -1,6 +1,3 @@
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
-
 import { ImageResponse } from 'next/og'
 
 export const ogSize = {
@@ -15,12 +12,7 @@ const ogTheme = {
   mutedForeground: '#737373',
 } as const
 
-const brandLabel = 'b-r.io'
-const logoPath = join(
-  process.cwd(),
-  'public/favicon/web-app-manifest-512x512.png',
-)
-const logoDisplaySize = 48
+const brandLabel = 'Your Name'
 const brandLabelFontSize = 40
 
 type Weight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
@@ -56,11 +48,6 @@ const titleMaxLines = 3
 // ~64 chars fits 3 lines at 64px within 900px (Satori line-clamp is unsupported).
 const titleMaxLength = 72
 
-async function getLogoDataUrl() {
-  const logo = await readFile(logoPath)
-  return `data:image/png;base64,${logo.toString('base64')}`
-}
-
 function formatOgTitle(title: string) {
   const trimmed = title.trim()
 
@@ -81,10 +68,9 @@ function formatOgTitle(title: string) {
 export async function generateOgImage({ title }: { title: string }) {
   const displayTitle = formatOgTitle(title)
 
-  const [interBoldFont, interRegularFont, logoDataUrl] = await Promise.all([
+  const [interBoldFont, interRegularFont] = await Promise.all([
     loadGoogleFont('Inter', displayTitle, 700),
     loadGoogleFont('Inter', brandLabel, 400),
-    getLogoDataUrl(),
   ])
 
   const fonts = []
@@ -108,62 +94,54 @@ export async function generateOgImage({ title }: { title: string }) {
   }
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        background: ogTheme.background,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        padding: '120px',
+      }}
+    >
       <div
         style={{
-          background: ogTheme.background,
-          width: '100%',
-          height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-          padding: '120px',
+          alignItems: 'center',
+          gap: '20px',
         }}
       >
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '20px',
-          }}
-        >
-          <img
-            src={logoDataUrl}
-            width={logoDisplaySize}
-            height={logoDisplaySize}
-            alt=""
-          />
-          <div
-            style={{
-              fontSize: brandLabelFontSize,
-              color: ogTheme.mutedForeground,
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            {brandLabel}
-          </div>
-        </div>
-        <div
-          style={{
-            marginTop: '64px',
-            fontSize: titleFontSize,
-            color: ogTheme.foreground,
-            textAlign: 'left',
-            maxWidth: '900px',
-            maxHeight: titleFontSize * titleLineHeight * titleMaxLines,
-            overflow: 'hidden',
-            letterSpacing: titleLetterSpacing,
-            lineHeight: titleLineHeight,
+            fontSize: brandLabelFontSize,
+            color: ogTheme.mutedForeground,
             fontFamily: 'Inter, system-ui, sans-serif',
-            fontWeight: 700,
+            fontWeight: 400,
           }}
         >
-          {displayTitle}
+          {brandLabel}
         </div>
       </div>
-    ),
+      <div
+        style={{
+          marginTop: '64px',
+          fontSize: titleFontSize,
+          color: ogTheme.foreground,
+          textAlign: 'left',
+          maxWidth: '900px',
+          maxHeight: titleFontSize * titleLineHeight * titleMaxLines,
+          overflow: 'hidden',
+          letterSpacing: titleLetterSpacing,
+          lineHeight: titleLineHeight,
+          fontFamily: 'Inter, system-ui, sans-serif',
+          fontWeight: 700,
+        }}
+      >
+        {displayTitle}
+      </div>
+    </div>,
     {
       ...ogSize,
       fonts,
