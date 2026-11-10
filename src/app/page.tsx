@@ -8,7 +8,15 @@ import {
   ContentCardEyebrow,
   ContentCardTitle,
 } from '@/components/ContentCard'
+import { Newsletter } from '@/components/Newsletter'
+import { PhotoGallery } from '@/components/PhotoGallery'
 import { PageEnter } from '@/components/PageEnter'
+import {
+  GitHubIcon,
+  InstagramIcon,
+  XIcon,
+  YouTubeIcon,
+} from '@/components/SocialIcons'
 import { formatDate } from '@/lib/formatDate'
 import { getAllPosts, type Post } from '@/lib/posts'
 import { homeHeroTitle } from '@/lib/site-copy'
@@ -23,18 +31,42 @@ function LatestPost({ post }: { post: Post }) {
       <ContentCardDescription className="text-pretty">
         {post.description}
       </ContentCardDescription>
-      <ContentCardCta>Read post</ContentCardCta>
+      <ContentCardCta>View post</ContentCardCta>
     </ContentCard>
   )
 }
 
 const experience = [
-  { company: 'Company name', role: 'Your role', dates: '2023 — Present' },
-  { company: 'Previous company', role: 'Previous role', dates: '2020 — 2023' },
+  {
+    company: 'Northstar Labs',
+    role: 'Senior Software Engineer',
+    dates: '2023 — Present',
+  },
+  {
+    company: 'Fieldwork Studio',
+    role: 'Software Engineer',
+    dates: '2020 — 2023',
+  },
+  { company: 'Common Thread', role: 'Web Developer', dates: '2018 — 2020' },
+]
+
+const socials = [
+  {
+    href: 'https://www.instagram.com/brianruizy',
+    label: 'Instagram',
+    Icon: InstagramIcon,
+  },
+  { href: 'https://x.com/brianruizy', label: 'X', Icon: XIcon },
+  {
+    href: 'https://www.youtube.com/@brianruizy',
+    label: 'YouTube',
+    Icon: YouTubeIcon,
+  },
+  { href: 'https://github.com/brianruizy', label: 'GitHub', Icon: GitHubIcon },
 ]
 
 export default async function Home() {
-  const posts = (await getAllPosts()).slice(0, 3)
+  const posts = (await getAllPosts()).slice(0, 2)
 
   return (
     <>
@@ -44,66 +76,90 @@ export default async function Home() {
             {homeHeroTitle}
           </h1>
           <p className="mt-6 text-base text-muted-foreground">
-            Add a short introduction about who you are, what you make, and what
-            you care about. Keep it personal and make it yours.
+            Software engineer and part-time YouTuber building thoughtful digital
+            products. Based in New York City, usually working on an app, a side
+            project, or a new video.
           </p>
           <div className="mt-6 flex gap-6 text-sm font-medium">
             <Link href="/about" className="link-underline">
               About
             </Link>
+            <Link href="/projects" className="link-underline">
+              Projects
+            </Link>
             <Link href="/writing" className="link-underline">
               Writing
             </Link>
+            <Link href="/gear" className="link-underline">
+              Gear
+            </Link>
+          </div>
+          <div className="mt-6 flex gap-4">
+            {socials.map(({ href, label, Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                className="group p-1"
+              >
+                <Icon className="size-6 fill-muted-foreground transition group-hover:fill-foreground" />
+              </Link>
+            ))}
           </div>
         </PageEnter>
       </Container>
 
-      <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 md:max-w-none md:grid-cols-2">
-          <section aria-labelledby="latest-heading" className="space-y-10">
-            <h2
-              id="latest-heading"
-              className="text-sm font-semibold tracking-tight"
-            >
-              Latest writing
-            </h2>
-            <div className="flex flex-col gap-12">
-              {posts.map((post) => (
-                <LatestPost key={post.href} post={post} />
-              ))}
-            </div>
-          </section>
+      <PhotoGallery />
 
-          <section
-            aria-labelledby="experience-heading"
-            className="space-y-6 md:pl-8 lg:pl-16 xl:pl-24"
-          >
-            <h2
-              id="experience-heading"
-              className="text-sm font-semibold tracking-tight"
-            >
-              Experience
-            </h2>
-            <ol className="space-y-5 rounded-2xl border border-border p-6">
-              {experience.map((item) => (
-                <li
-                  key={item.company}
-                  className="flex flex-wrap gap-x-3 gap-y-1 text-sm"
+      <Container className="mt-24 md:mt-28">
+        <PageEnter index={3}>
+          <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 md:max-w-none md:grid-cols-2">
+            <section aria-labelledby="latest-heading" className="space-y-10">
+              <h2
+                id="latest-heading"
+                className="text-sm font-semibold tracking-tight"
+              >
+                Latest
+              </h2>
+              <div className="flex flex-col gap-16">
+                {posts.map((post) => (
+                  <LatestPost key={post.href} post={post} />
+                ))}
+              </div>
+            </section>
+
+            <div className="space-y-10 md:pl-8 lg:pl-16 xl:pl-24">
+              <Newsletter />
+              <section
+                aria-labelledby="experience-heading"
+                className="rounded-2xl border border-border p-6"
+              >
+                <h2
+                  id="experience-heading"
+                  className="text-sm font-semibold text-foreground"
                 >
-                  <span className="font-medium text-foreground">
-                    {item.role}
-                  </span>
-                  <span className="text-muted-foreground">
-                    at {item.company}
-                  </span>
-                  <span className="ml-auto text-xs text-muted-foreground">
-                    {item.dates}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </section>
-        </div>
+                  Experience
+                </h2>
+                <ol className="mt-6 space-y-5">
+                  {experience.map((item) => (
+                    <li
+                      key={item.company}
+                      className="flex flex-wrap gap-x-2 gap-y-1 text-sm"
+                    >
+                      <span className="w-full font-medium text-foreground">
+                        {item.company}
+                      </span>
+                      <span className="text-muted-foreground">{item.role}</span>
+                      <span className="ml-auto text-xs text-muted-foreground">
+                        {item.dates}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </div>
+          </div>
+        </PageEnter>
       </Container>
     </>
   )

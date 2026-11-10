@@ -5,7 +5,7 @@ import { createPostMetadata } from '@/lib/posts'
 
 export const metadata = createPostMetadata(post)
 
-export default function SampleArticle() {
+export default function PlanningACreativeWeekend() {
   return (
     <PostLayout post={post}>
       <ArticleContent />

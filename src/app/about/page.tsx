@@ -2,11 +2,11 @@ import { Container } from '@/components/Container'
 import { PageEnter } from '@/components/PageEnter'
 import { createPageMetadata } from '@/lib/metadata'
 
-const heroTitle = 'A little about Your Name.'
+const heroTitle = 'A little about Brian.'
 
 export const metadata = createPageMetadata({
   title: 'About',
-  description: 'Learn more about Your Name and the work they do.',
+  description: 'A little about Brian Ruiz, a software engineer and creator.',
   heroTitle,
 })
 
@@ -19,17 +19,19 @@ export default function About() {
         </h1>
         <div className="mt-6 space-y-7 text-base text-muted-foreground">
           <p>
-            Introduce yourself here. Share where you are based, how you got into
-            your work, and the kinds of things you enjoy making.
+            I’m a software engineer and creator based in New York City. I like
+            making useful things that feel simple, thoughtful, and a little
+            delightful to use.
           </p>
           <p>
-            Add a little more detail about your experience, interests, or
-            approach. This starter keeps the page intentionally simple so it is
-            easy to shape around your own story.
+            Most days you’ll find me building products, exploring new ideas, or
+            making videos about technology and the creative process. Away from
+            the desk, I’m usually out taking photos or finding a new corner of
+            the city to explore.
           </p>
           <p>
-            Replace this paragraph with a way for readers to get in touch, or
-            add links to the places where you share your work.
+            This page is a starting point. Add the details, interests, and links
+            that make your own story feel like yours.
           </p>
         </div>
       </PageEnter>

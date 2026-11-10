@@ -22,12 +22,12 @@ const sourceSerif = Source_Serif_4({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
 
-const title = 'Your Name - Portfolio'
-const description = 'Personal portfolio and writing by Your Name.'
+const title = 'Brian Ruiz - Portfolio'
+const description = 'Personal portfolio and writing by Brian Ruiz.'
 const websiteStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Your Name',
+  name: 'Brian Ruiz',
   alternateName: 'Portfolio',
   url: siteUrl,
 }
@@ -35,7 +35,7 @@ const websiteStructuredData = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s - Your Name',
+    template: '%s - Brian Ruiz',
     default: title,
   },
   description,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: '/',
-    siteName: 'Your Name',
+    siteName: 'Brian Ruiz',
     locale: 'en_US',
     type: 'website',
     images: siteOpenGraphImages,

@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'miro.medium.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
   async redirects() {
