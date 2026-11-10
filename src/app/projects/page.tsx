@@ -11,6 +11,7 @@ import { createPageMetadata } from '@/lib/metadata'
 import beamLogo from '@/images/logos/beam-dark.png'
 import studioLogo from '@/images/logos/animaginary.svg'
 import dashboardLogo from '@/images/logos/open-shuttle.svg'
+import fieldNotesLogo from '@/images/logos/field-notes.svg'
 
 const projects = [
   {
@@ -20,7 +21,7 @@ const projects = [
     href: 'https://joinbeam.app',
     label: 'joinbeam.app',
     logo: beamLogo,
-    logoBackground: 'bg-card shadow-md shadow-foreground/5 dark:bg-muted',
+    logoBackground: 'bg-card dark:bg-muted',
   },
   {
     name: 'Studio UI Kit',
@@ -29,7 +30,7 @@ const projects = [
     href: 'https://github.com/yourname/studio-ui-kit',
     label: 'github.com/yourname/studio-ui-kit',
     logo: studioLogo,
-    logoBackground: 'bg-transparent',
+    logoBackground: 'bg-card dark:bg-muted',
   },
   {
     name: 'Orbit Dashboard',
@@ -38,7 +39,16 @@ const projects = [
     href: 'https://github.com/yourname/orbit-dashboard',
     label: 'github.com/yourname/orbit-dashboard',
     logo: dashboardLogo,
-    logoBackground: 'bg-transparent',
+    logoBackground: 'bg-card dark:bg-muted',
+  },
+  {
+    name: 'Field Notes',
+    description:
+      'A quiet space for collecting ideas, observations, and inspiration, then shaping them into something useful.',
+    href: 'https://github.com/yourname/field-notes',
+    label: 'github.com/yourname/field-notes',
+    logo: fieldNotesLogo,
+    logoBackground: 'bg-card dark:bg-muted',
   },
 ]
 
@@ -71,9 +81,9 @@ export default function Projects() {
       >
         {projects.map((project) => (
           <li key={project.name}>
-            <ContentCard className="h-full">
+            <ContentCard className="h-full rounded-2xl bg-card p-6 shadow-md shadow-foreground/5 dark:bg-muted">
               <div
-                className={`relative flex size-12 items-center justify-center overflow-hidden rounded-full ring-1 ring-border ${project.logoBackground}`}
+                className={`relative z-10 flex size-12 flex-none items-center justify-center overflow-hidden rounded-full ring-1 ring-border ${project.logoBackground}`}
               >
                 <Image
                   src={project.logo}

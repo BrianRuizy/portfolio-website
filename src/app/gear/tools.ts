@@ -17,25 +17,24 @@ export const toolGroups: ToolGroup[] = [
         title: 'AirPods Max',
         href: 'https://amzn.to/3mie64b',
         description:
-          'For focused desk work, commuting, and travel. AirPods Pro are the lighter everyday pair.',
+          'Over-ear headphones for focused desk work, commuting, and travel; AirPods Pro are a lighter option for everyday listening.',
       },
       {
         title: 'Apple MacBook Pro M1 Pro',
         href: 'https://amzn.to/41fkhEH',
         description:
-          'Awesome mini-LED display in 16 inch, perfect for multitasking on the go, though it is a bit hefty.',
+          'A capable 16-inch laptop with a mini-LED display for development, editing, and multitasking on the go.',
       },
       {
         title: 'Samsung T7 Shield SSD',
         href: 'https://amzn.to/3vwoD03',
         description:
-          'Portable storage for editing projects and recording ProRes footage.',
+          'Rugged portable storage for editing projects and recording ProRes footage.',
       },
       {
         title: 'Urth Arkose backpack',
         href: 'https://amzn.to/49d888x',
-        description:
-          'Sleek and water resistant. Holds the daily tech essentials.',
+        description: 'A sleek, water-resistant backpack for daily tech essentials.',
       },
     ],
   },
@@ -46,30 +45,30 @@ export const toolGroups: ToolGroup[] = [
         title: 'Apple Magic Keyboard with Touch ID',
         href: 'https://amzn.to/4hqtEeo',
         description:
-          'I moved away from mechanical keyboards in favor of something wireless and simple. Touch ID is handy, too. I pair it with a Logitech MX Master 3S.',
+          'A simple wireless keyboard with Touch ID, paired with the Logitech MX Master 3S.',
       },
       {
         title: 'Apple Studio Display',
         href: 'https://amzn.to/3TTDg7d',
         description:
-          'Main display for development, design, and editing. BenQ ScreenBar Halo sits on top for reducing eye strain.',
+          'A main display for development, design, and editing, paired with a BenQ ScreenBar Halo to reduce eye strain.',
       },
       {
         title: 'Herman Miller Aeron',
         description:
-          'A design icon. Bought secondhand, still one of the most important parts of the workspace.',
+          'An ergonomic design classic; a secondhand option can make it a practical centerpiece for a workspace.',
       },
       {
         title: 'Shure SM7dB',
         href: 'https://amzn.to/4w5vRRS',
         description:
-          'A near-perfect mic that stays mounted on the desk for meetings and the voiceovers I do.',
+          'A broadcast-style microphone for calls and voiceovers, mounted within easy reach.',
       },
       {
         title: 'Vernal Core3 standing desk',
         href: 'https://www.vernalspace.com/products/vernal-solid-wood-standing-desk',
         description:
-          'Solid walnut hardwood on a white frame. A clean, comfortable foundation for long coding sessions that still feels minimal.',
+          'A solid walnut top on a white frame, creating a comfortable and minimal foundation for long work sessions.',
       },
     ],
   },
@@ -80,42 +79,42 @@ export const toolGroups: ToolGroup[] = [
         title: 'Peak Design carbon fiber tripod',
         href: 'https://amzn.to/43CoF31',
         description:
-          'Light enough to actually bring along, sturdy enough for real work, and it looks so nice.',
+          'A lightweight carbon-fiber tripod with the stability needed for travel and production work.',
       },
       {
         title: 'Sennheiser MKE 400',
         href: 'https://www.amazon.com/dp/B08YS34YRS',
         description:
-          'Shotgun mic for talking directly to camera. Adds very little weight to the setup, still crispy sound.',
+          'A compact shotgun microphone for direct-to-camera recording, with clear audio and minimal added weight.',
       },
       {
         title: 'Sony 16–35mm f/2.8 GM II',
         href: 'https://www.amazon.com/dp/B0CGTW24VF',
         description:
-          'My ultra-wide. Cost a pretty penny, but perfect for capturing small settings or the full picture.',
+          'An ultra-wide zoom lens for interiors, compact spaces, and expansive scenes.',
       },
       {
         title: 'Sony 24–70mm f/2.8 GM II',
         href: 'https://amzn.to/3TABciO',
         description:
-          'The workhorse lens on the FX3, what I reach for to capture tight cinematic shots.',
+          'A versatile workhorse zoom for tighter cinematic framing and everyday video production.',
       },
       {
         title: 'Sony 40mm f/2.5 G',
         href: 'https://amzn.to/3YTBdCz',
-        description: 'Perfect for lightweight, minimal street photography.',
+        description: 'A compact prime lens suited to lightweight street photography.',
       },
       {
         title: 'Sony a7C II',
         href: 'https://amzn.to/3TQbJmO',
         description:
-          'Compact full-frame body for street photography around New York City.',
+          'A compact full-frame camera body for street photography and travel.',
       },
       {
         title: 'Sony FX3',
         href: 'https://amzn.to/3TR2lzz',
         description:
-          "My dream camera. It can feel like overkill, but using it you understand why it's so loved. This camera forces you to learn more about videography, and that's why I love it myself.",
+          'A cinema camera with professional video features for learning and producing high-quality footage.',
       },
     ],
   },

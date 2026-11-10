@@ -39,22 +39,25 @@ function LatestPost({ post }: { post: Post }) {
 
 const experience = [
   {
+    company: 'Pan Am',
+    role: 'Systems Engineer',
+    dates: '1987 — 1991',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Pan_Am_Logo.svg',
+    logoBackground: 'bg-card dark:bg-muted',
+  },
+  {
     company: 'NeXT',
     role: 'Software Engineer',
     dates: '1994 — 1997',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg',
+    logoBackground: 'bg-white',
   },
   {
-    company: 'Sun Microsystems',
+    company: 'Twitter',
     role: 'Software Engineer',
-    dates: '1998 — 2004',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Sun-Logo.svg',
-  },
-  {
-    company: 'Palm',
-    role: 'Product Engineer',
-    dates: '2005 — 2010',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Palm-Logo.svg',
+    dates: '2009 — 2023',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Twitter_bird_logo_2012.svg',
+    logoBackground: 'bg-[#1DA1F2]',
   },
 ]
 
@@ -74,7 +77,7 @@ const socials = [
 ]
 
 export default async function Home() {
-  const posts = (await getAllPosts()).slice(0, 2)
+  const posts = (await getAllPosts()).slice(0, 3)
 
   return (
     <>
@@ -140,7 +143,9 @@ export default async function Home() {
                       key={item.company}
                       className="flex items-center gap-3 text-sm"
                     >
-                      <div className="relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full bg-white p-1.5 ring-1 ring-border">
+                      <div
+                        className={`relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full p-1.5 shadow-md shadow-foreground/5 ring-1 ring-border ${item.logoBackground}`}
+                      >
                         <Image
                           src={item.logo}
                           alt=""
