@@ -8,7 +8,7 @@ import {
 } from '@/components/ContentCard'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { createPageMetadata } from '@/lib/metadata'
-import beamLogo from '@/images/logos/beam-icon-borderless.svg'
+import beamLogo from '@/images/logos/beam-dark.png'
 import studioLogo from '@/images/logos/animaginary.svg'
 import dashboardLogo from '@/images/logos/open-shuttle.svg'
 
@@ -20,7 +20,7 @@ const projects = [
     href: 'https://joinbeam.app',
     label: 'joinbeam.app',
     logo: beamLogo,
-    logoBackground: 'bg-[#242424]',
+    logoBackground: 'bg-card shadow-md shadow-foreground/5 dark:bg-muted',
   },
   {
     name: 'Studio UI Kit',
@@ -81,7 +81,7 @@ export default function Projects() {
                   width={32}
                   height={32}
                   unoptimized
-                  className="size-8 object-contain"
+                  className="size-8 rounded-full object-contain"
                 />
               </div>
               <ContentCardTitle href={project.href} external className="mt-6">

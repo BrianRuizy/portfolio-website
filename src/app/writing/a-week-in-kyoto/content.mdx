@@ -1,6 +1,31 @@
+import { ImageCarousel } from '@/components/ImageCarousel'
+import gardenPhoto from './kyoto-garden.png'
+import streetPhoto from './kyoto-street.png'
+import autumnPhoto from './kyoto-autumn.png'
+
 This travel journal is about spending a week in Kyoto without trying to turn every hour into a checklist. The city rewards a slower pace. A morning can start with a short walk, become a long pause in a garden, and end with a dinner recommendation from someone you met along the way.
 
-The photos here are a visual placeholder for your own trip. Swap in a place and a story that are yours; keep the details that help a reader feel what it was like to be there.
+Here are a few scenes from the trip: a garden, a quiet lane beneath the pagoda, and the view from a traditional room.
+
+<ImageCarousel
+  images={[
+    {
+      src: gardenPhoto,
+      alt: 'A landscaped Kyoto garden with a pond, raked gravel, trees, and a traditional building',
+      caption: 'A quiet garden where the gravel, water, and trees each have room to breathe.',
+    },
+    {
+      src: streetPhoto,
+      alt: 'Traditional wooden Kyoto buildings frame a street with a pagoda in the distance',
+      caption: 'A Kyoto side street opening toward a pagoda.',
+    },
+    {
+      src: autumnPhoto,
+      alt: 'Autumn trees seen through the open shoji doors of a traditional Japanese room',
+      caption: 'Looking out toward the autumn color from inside a traditional room.',
+    },
+  ]}
+/>
 
 ## Start early, then let the day change
 

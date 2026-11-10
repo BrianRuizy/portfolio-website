@@ -32,13 +32,13 @@ function Tool({ title, href, description }: ToolItem) {
           as="h3"
           href={href}
           external={Boolean(href)}
-          className={href ? 'text-accent' : undefined}
+          className={href ? 'text-foreground' : undefined}
         >
           <span className="inline-flex items-center gap-2">
             {title}
             {href ? (
               <ArrowUpRightIcon
-                className="size-4 text-accent transition"
+                className="size-4 text-muted-foreground transition"
                 aria-hidden
               />
             ) : null}
