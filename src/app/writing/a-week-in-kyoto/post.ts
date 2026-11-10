@@ -4,9 +4,9 @@ export const post = {
   type: 'article',
   author: 'Brian Ruiz',
   date: '2026-09-22',
-  title: 'Sample: A Week of Wandering in Kyoto',
+  title: 'A Week of Wandering in Kyoto',
   description:
-    'A short travel journal about slow mornings, side streets, and seeing a city on foot.',
+    'A travel journal about Kyoto: taking the long way, noticing small details, and leaving room for unplanned stops.',
   coverImage:
-    'https://images.unsplash.com/photo-1769921546096-7a648d953a3e?auto=format&fit=crop&w=1400&q=80',
+    'https://images.unsplash.com/photo-1592368365898-f96c398d5469?w=900&auto=format',
 } satisfies PostMeta

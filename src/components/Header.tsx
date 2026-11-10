@@ -4,6 +4,7 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
+import Image from 'next/image'
 import {
   ChevronDownIcon,
   MoonIcon,
@@ -24,6 +25,7 @@ import {
 } from '@/lib/transitions'
 import { cn } from '@/lib/utils'
 import { isWritingPath } from '@/lib/writing'
+import avatarImage from '@/images/avatars/brian-avatar.png'
 
 type TrayBounds = {
   top: number
@@ -488,11 +490,17 @@ function Avatar({
       <span
         aria-hidden="true"
         className={cn(
-          'flex items-center justify-center rounded-full bg-accent/10 font-semibold text-accent',
-          large ? 'h-16 w-16 text-xl' : 'h-9 w-9 text-sm',
+          'relative block overflow-hidden rounded-full',
+          large ? 'h-16 w-16' : 'h-9 w-9',
         )}
       >
-        YN
+        <Image
+          src={avatarImage}
+          alt=""
+          fill
+          sizes={large ? '64px' : '36px'}
+          className="object-cover"
+        />
       </span>
     </Link>
   )

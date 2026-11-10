@@ -1,13 +1,79 @@
-This sample post walks through a small product feature: search. The goal is to show how a focused engineering write-up can explain the user problem, the implementation, and the tradeoffs without turning into a full technical manual.
+Search looks like a small feature: one input, a list of results, and maybe a clear button. But it sits at the intersection of product design, accessibility, and data handling. This article walks through a lightweight client-side search for a list of projects, then shows how to keep the interaction useful as the data grows.
 
-## Start with the job
+The example uses React and TypeScript. It assumes each item has a title, description, and tags, but the pattern works for a resource directory, command list, or small catalog too.
 
-Before choosing a library or writing an index, decide what people need to find and how quickly they expect an answer. A small, well-scoped search often benefits more from clear labels and helpful empty states than from a complex ranking system.
+## Decide what people are trying to find
 
-## Keep the first version simple
+Before choosing a library, write down what people expect to search. If they only need to find a project by its name or topic, a normalized substring match is easy to understand and maintain. More elaborate ranking would add complexity without making the first version more useful.
 
-For a compact collection, filter data on the client and make the interaction keyboard-friendly. If the collection grows, the same interface can move to a server-backed search without changing how it feels to use.
+For this example, the search checks the title, description, and tags. It also trims whitespace, ignores letter case, and treats an empty query as “show everything.”
 
-Use this as a starting point for a programming article of your own.
+```tsx filename="src/components/SearchList.tsx"
+type Project = {
+  title: string
+  description: string
+  tags: string[]
+}
+
+function matchesQuery(project: Project, query: string) {
+  const normalizedQuery = query.trim().toLocaleLowerCase()
+
+  if (!normalizedQuery) return true
+
+  const searchableText = [project.title, project.description, ...project.tags]
+    .join(' ')
+    .toLocaleLowerCase()
+
+  return searchableText.includes(normalizedQuery)
+}
+
+export function filterProjects(projects: Project[], query: string) {
+  return projects.filter((project) => matchesQuery(project, query))
+}
+```
+
+The filtering function stays separate from the input component, which makes it straightforward to reuse and test. The input can stay focused on **interaction**: reading the query, announcing the result count, and showing a helpful empty state.
+
+## Make the result state obvious
+
+Search has a few useful states. A person should be able to tell what is happening without guessing:
+
+1. **Empty query:** show the full list.
+2. **Matching query:** show the matching items and a result count.
+3. **No matches:** explain what was searched and offer a quick way to clear it.
+
+For example, an empty state can include a button that calls `setQuery('')`. It is a small detail, but it saves the reader from having to locate and select the whole query manually.
+
+> A search field should make the next step clearer, even when it finds nothing.
+
+Use a real `<label>` for the input. If results update as someone types, announce the count in a polite live region so assistive technology can keep up without interrupting the current reading.
+
+## Keep the interface responsive
+
+Filtering a small in-memory list is fast enough to happen on each keystroke. If filtering becomes expensive, React’s `useDeferredValue` can let the text field respond immediately while the result list catches up. Debouncing can reduce repeated server requests, but it should not add a noticeable pause to local search.
+
+| Collection size                   | A reasonable first approach                        |
+| --------------------------------- | -------------------------------------------------- |
+| A few dozen items                 | Filter in the browser                              |
+| A few thousand items              | Measure first; defer expensive rendering if needed |
+| Large or frequently changing data | Search on the server and paginate                  |
+
+These are starting points, not hard thresholds. Measure with representative content and on a slower device before adding an index or a dependency.
+
+## When the data outgrows the page
+
+If the list later moves to an API, keep the same input, loading state, result count, and empty state. Replace the local filter with a request and add cancellation or request IDs so a slower response cannot overwrite a newer query.
+
+The useful part of this example is the boundary: the search behavior is independent from its presentation. That keeps a small feature small today and gives it a clear path to grow tomorrow.
+
+### A quick implementation checklist
+
+- [x] Search the fields people actually recognize.
+- [x] Normalize whitespace and casing.
+- [x] Keep the input labeled and keyboard accessible.
+- [x] Include loading and no-results states when they apply.
+- [ ] Add fuzzy matching before you know that people need it.
+
+Try this pattern with a small list in your own portfolio, then change the fields and empty state to fit what visitors are looking for.
 
 Cover photo by [Emile Perron on Unsplash](https://unsplash.com/photos/macbook-pro-showing-programming-language-xrVDYZRGdw4).
