@@ -43,7 +43,7 @@ const experience = [
     role: 'Systems Engineer',
     dates: '1987 — 1991',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Pan_Am_Logo.svg',
-    logoBackground: 'bg-card dark:bg-muted',
+    logoBackground: 'bg-white',
   },
   {
     company: 'NeXT',
@@ -56,7 +56,7 @@ const experience = [
     company: 'Twitter',
     role: 'Software Engineer',
     dates: '2009 — 2023',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Twitter_bird_logo_2012.svg',
+    logo: 'https://upload.wikimedia.org/wikipedia/sco/9/9f/Twitter_bird_logo_2012.svg',
     logoBackground: 'bg-[#1DA1F2]',
   },
 ]

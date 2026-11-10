@@ -58,19 +58,28 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-muted-foreground">
             <p>
-              I’m a software engineer and creator based in New York City. I like
-              making useful things that feel simple, thoughtful, and a little
-              delightful to use.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+              mattis, neque nec bibendum posuere, massa lorem pretium erat, vel
+              facilisis augue lacus vitae odio. Curabitur interdum sem vitae
+              magna tempus, sed dictum justo pulvinar. Integer at mi vel magna
+              ultrices feugiat. Suspendisse potenti. Aenean euismod, justo nec
+              placerat gravida, ligula lacus varius lorem, vitae blandit magna
+              urna et odio. Praesent faucibus libero et purus facilisis, vel
+              tincidunt justo blandit. Vestibulum ante ipsum primis in faucibus
+              orci luctus et ultrices posuere cubilia curae; Duis sed dolor
+              vitae ante convallis ullamcorper.
             </p>
             <p>
-              Most days you’ll find me building products, exploring new ideas,
-              or making videos about technology and the creative process. Away
-              from the desk, I’m usually out taking photos or finding a new
-              corner of the city to explore.
-            </p>
-            <p>
-              This page is a starting point. Add the details, interests, and
-              links that make your own story feel like yours.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              feugiat, mi quis posuere consequat, magna urna dapibus tellus, a
+              interdum nulla arcu non sem. Donec sit amet ligula sed lectus
+              posuere consequat. Morbi vel urna vitae risus gravida tristique.
+              Nam pellentesque, ligula a eleifend dapibus, libero velit
+              porttitor eros, vitae consequat risus nulla non nibh. Mauris
+              volutpat, nulla at sagittis aliquet, tellus neque varius nunc,
+              vitae aliquam magna ligula sed purus. Sed non est quis lorem
+              vulputate viverra. Aliquam erat volutpat. Cras consequat nunc
+              eget commodo facilisis, in vestibulum arcu suscipit.
             </p>
           </div>
         </PageEnter>
