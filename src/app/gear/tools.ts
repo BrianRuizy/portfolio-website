@@ -1,5 +1,13 @@
-export type ToolItem = { title: string; href?: string; description: string }
-export type ToolGroup = { title: string; tools: ToolItem[] }
+export type ToolItem = {
+  title: string
+  href?: string
+  description: string
+}
+
+export type ToolGroup = {
+  title: string
+  tools: ToolItem[]
+}
 
 export const toolGroups: ToolGroup[] = [
   {
@@ -8,23 +16,26 @@ export const toolGroups: ToolGroup[] = [
       {
         title: 'AirPods Max',
         href: 'https://amzn.to/3mie64b',
-        description: 'For focused desk work, commuting, and travel.',
+        description:
+          'For focused desk work, commuting, and travel. AirPods Pro are the lighter everyday pair.',
       },
       {
         title: 'Apple MacBook Pro M1 Pro',
         href: 'https://amzn.to/41fkhEH',
         description:
-          'A capable laptop for development, editing, and working on the go.',
+          'Awesome mini-LED display in 16 inch, perfect for multitasking on the go, though it is a bit hefty.',
       },
       {
         title: 'Samsung T7 Shield SSD',
         href: 'https://amzn.to/3vwoD03',
-        description: 'Portable storage for editing projects and video footage.',
+        description:
+          'Portable storage for editing projects and recording ProRes footage.',
       },
       {
         title: 'Urth Arkose backpack',
         href: 'https://amzn.to/49d888x',
-        description: 'A sleek, water-resistant bag for daily essentials.',
+        description:
+          'Sleek and water resistant. Holds the daily tech essentials.',
       },
     ],
   },
@@ -35,28 +46,30 @@ export const toolGroups: ToolGroup[] = [
         title: 'Apple Magic Keyboard with Touch ID',
         href: 'https://amzn.to/4hqtEeo',
         description:
-          'A quiet, wireless keyboard with Touch ID for everyday use.',
+          'I moved away from mechanical keyboards in favor of something wireless and simple. Touch ID is handy, too. I pair it with a Logitech MX Master 3S.',
       },
       {
         title: 'Apple Studio Display',
         href: 'https://amzn.to/3TTDg7d',
-        description: 'My main display for development, design, and editing.',
+        description:
+          'Main display for development, design, and editing. BenQ ScreenBar Halo sits on top for reducing eye strain.',
       },
       {
         title: 'Herman Miller Aeron',
         description:
-          'Bought secondhand, and still one of the most important parts of my workspace.',
+          'A design icon. Bought secondhand, still one of the most important parts of the workspace.',
       },
       {
         title: 'Shure SM7dB',
         href: 'https://amzn.to/4w5vRRS',
-        description: 'A desk microphone for meetings and voiceovers.',
+        description:
+          'A near-perfect mic that stays mounted on the desk for meetings and the voiceovers I do.',
       },
       {
         title: 'Vernal Core3 standing desk',
         href: 'https://www.vernalspace.com/products/vernal-solid-wood-standing-desk',
         description:
-          'A solid walnut desk that makes long work sessions more comfortable.',
+          'Solid walnut hardwood on a white frame. A clean, comfortable foundation for long coding sessions that still feels minimal.',
       },
     ],
   },
@@ -67,39 +80,42 @@ export const toolGroups: ToolGroup[] = [
         title: 'Peak Design carbon fiber tripod',
         href: 'https://amzn.to/43CoF31',
         description:
-          'Light enough to bring along and sturdy enough for real work.',
+          'Light enough to actually bring along, sturdy enough for real work, and it looks so nice.',
       },
       {
         title: 'Sennheiser MKE 400',
         href: 'https://www.amazon.com/dp/B08YS34YRS',
         description:
-          'A compact on-camera microphone for talking directly to camera.',
+          'Shotgun mic for talking directly to camera. Adds very little weight to the setup, still crispy sound.',
       },
       {
         title: 'Sony 16–35mm f/2.8 GM II',
         href: 'https://www.amazon.com/dp/B0CGTW24VF',
         description:
-          'An ultra-wide lens for small spaces and capturing the full scene.',
+          'My ultra-wide. Cost a pretty penny, but perfect for capturing small settings or the full picture.',
       },
       {
         title: 'Sony 24–70mm f/2.8 GM II',
         href: 'https://amzn.to/3TABciO',
-        description: 'A versatile everyday lens for video and photos.',
+        description:
+          'The workhorse lens on the FX3, what I reach for to capture tight cinematic shots.',
       },
       {
         title: 'Sony 40mm f/2.5 G',
         href: 'https://amzn.to/3YTBdCz',
-        description: 'A lightweight lens for minimal street photography.',
+        description: 'Perfect for lightweight, minimal street photography.',
       },
       {
         title: 'Sony a7C II',
         href: 'https://amzn.to/3TQbJmO',
-        description: 'A compact full-frame camera for exploring New York City.',
+        description:
+          'Compact full-frame body for street photography around New York City.',
       },
       {
         title: 'Sony FX3',
         href: 'https://amzn.to/3TR2lzz',
-        description: 'A dedicated video camera for learning and making films.',
+        description:
+          "My dream camera. It can feel like overkill, but using it you understand why it's so loved. This camera forces you to learn more about videography, and that's why I love it myself.",
       },
     ],
   },
@@ -110,29 +126,31 @@ export const toolGroups: ToolGroup[] = [
         title: 'Apple TV 4K',
         href: 'https://www.apple.com/apple-tv-4k/',
         description:
-          'The hub for sports, movies, and YouTube in the living room.',
+          'What actually drives the living-room TV. Sports, movies, and YouTube.',
       },
       {
         title: 'Cowboy Classic v4',
         href: 'https://cowboy.bike/',
         description:
-          'A beautifully designed e-bike for getting around the city.',
+          "My e-bike. I love the design. From a distance it still looks like an ordinary classic bike, but it's perfect for zipping around the city.",
       },
       {
         title: 'LG C4 OLED',
         href: 'https://amzn.to/3ZRVet8',
-        description: 'A 55-inch OLED TV paired with a Sonos Beam.',
+        description:
+          'The living-room TV. I have the 55 inch, which feels perfect, not too big, not too small. Pair it with a Sonos Beam for sound.',
       },
       {
         title: 'Philips Hue',
-        href: 'https://www.philips-hue.com/',
+        href: 'https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-75w-a19-e26-smart-bulb/046677591168',
         description:
-          'Smart lighting for a little extra warmth around the apartment.',
+          'Started with a single bulb in a lamp, then added a couple around the space for nice ambience.',
       },
       {
         title: 'Sonos Era 100',
         href: 'https://www.sonos.com/en-us/shop/era-100',
-        description: 'Rich sound for listening without headphones.',
+        description:
+          "In the room for rich, full jamming sessions when I don't want headphones.",
       },
     ],
   },

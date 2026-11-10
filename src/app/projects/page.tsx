@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { LinkIcon } from '@heroicons/react/24/outline'
 
 import {
@@ -7,6 +8,9 @@ import {
 } from '@/components/ContentCard'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { createPageMetadata } from '@/lib/metadata'
+import beamLogo from '@/images/logos/beam-icon-borderless.svg'
+import studioLogo from '@/images/logos/animaginary.svg'
+import dashboardLogo from '@/images/logos/open-shuttle.svg'
 
 const projects = [
   {
@@ -15,20 +19,26 @@ const projects = [
       'A calm space for tasks, projects, notes, and your day, built for Apple devices.',
     href: 'https://joinbeam.app',
     label: 'joinbeam.app',
+    logo: beamLogo,
+    logoBackground: 'bg-[#242424]',
   },
   {
-    name: 'COVID-19 Dashboard',
+    name: 'Studio UI Kit',
     description:
-      'An interactive dashboard for exploring public health data and trends.',
-    href: 'https://github.com/brianruizy/covid19-dashboard',
-    label: 'GitHub',
+      'A flexible component library for building clear, accessible product interfaces.',
+    href: 'https://github.com/yourname/studio-ui-kit',
+    label: 'github.com/yourname/studio-ui-kit',
+    logo: studioLogo,
+    logoBackground: 'bg-transparent',
   },
   {
-    name: 'Portfolio Starter',
+    name: 'Orbit Dashboard',
     description:
-      'A personal site for sharing projects, writing, photos, and the tools behind the work.',
-    href: 'https://github.com/BrianRuizy/portfolio-website',
-    label: 'GitHub',
+      'A project workspace for organizing work, tracking progress, and sharing updates.',
+    href: 'https://github.com/yourname/orbit-dashboard',
+    label: 'github.com/yourname/orbit-dashboard',
+    logo: dashboardLogo,
+    logoBackground: 'bg-transparent',
   },
 ]
 
@@ -62,8 +72,17 @@ export default function Projects() {
         {projects.map((project) => (
           <li key={project.name}>
             <ContentCard className="h-full">
-              <div className="flex size-12 items-center justify-center rounded-full bg-muted text-sm font-semibold text-foreground ring-1 ring-border">
-                {project.name.slice(0, 2).toUpperCase()}
+              <div
+                className={`relative flex size-12 items-center justify-center overflow-hidden rounded-full ring-1 ring-border ${project.logoBackground}`}
+              >
+                <Image
+                  src={project.logo}
+                  alt=""
+                  width={32}
+                  height={32}
+                  unoptimized
+                  className="size-8 object-contain"
+                />
               </div>
               <ContentCardTitle href={project.href} external className="mt-6">
                 {project.name}

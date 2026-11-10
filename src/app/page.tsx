@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
@@ -37,13 +38,24 @@ function LatestPost({ post }: { post: Post }) {
 }
 
 const experience = [
-  { company: 'NeXT', role: 'Software Engineer', dates: '1994 — 1997' },
+  {
+    company: 'NeXT',
+    role: 'Software Engineer',
+    dates: '1994 — 1997',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg',
+  },
   {
     company: 'Sun Microsystems',
     role: 'Software Engineer',
     dates: '1998 — 2004',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Sun-Logo.svg',
   },
-  { company: 'Palm', role: 'Product Engineer', dates: '2005 — 2010' },
+  {
+    company: 'Palm',
+    role: 'Product Engineer',
+    dates: '2005 — 2010',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Palm-Logo.svg',
+  },
 ]
 
 const socials = [
@@ -126,13 +138,25 @@ export default async function Home() {
                   {experience.map((item) => (
                     <li
                       key={item.company}
-                      className="flex flex-wrap gap-x-2 gap-y-1 text-sm"
+                      className="flex items-center gap-3 text-sm"
                     >
-                      <span className="w-full font-medium text-foreground">
-                        {item.company}
-                      </span>
-                      <span className="text-muted-foreground">{item.role}</span>
-                      <span className="ml-auto text-xs text-muted-foreground">
+                      <div className="relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full bg-white p-1.5 ring-1 ring-border">
+                        <Image
+                          src={item.logo}
+                          alt=""
+                          width={32}
+                          height={32}
+                          unoptimized
+                          className="size-full object-contain"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium text-foreground">
+                          {item.company}
+                        </p>
+                        <p className="text-muted-foreground">{item.role}</p>
+                      </div>
+                      <span className="shrink-0 text-xs text-muted-foreground">
                         {item.dates}
                       </span>
                     </li>

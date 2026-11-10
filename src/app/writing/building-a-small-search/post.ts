@@ -4,7 +4,7 @@ export const post = {
   type: 'article',
   author: 'Brian Ruiz',
   date: '2026-11-04',
-  title: 'Sample: Building a Small Search Feature',
+  title: 'Building a Small Search Feature',
   description:
     'A practical look at turning a simple search box into a useful part of a product.',
   coverImage:
