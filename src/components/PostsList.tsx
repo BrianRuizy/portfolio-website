@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useSyncExternalStore } from 'react'
 import { formatDate } from '@/lib/formatDate'
 import { useSearchParams } from 'next/navigation'
 
@@ -62,6 +61,20 @@ function PostItem({ post }: { post: Post }) {
         {formatDate(post.date)}
       </time>
       <ContentCard as="article" className="md:col-span-3">
+        {post.coverImage && (
+          <div className="relative z-10 mb-4 h-24 w-36 overflow-hidden rounded-lg bg-muted ring-1 ring-border sm:h-28 sm:w-44">
+            <Image
+              src={post.coverImage}
+              alt=""
+              fill
+              sizes="176px"
+              unoptimized={post.coverImage.startsWith(
+                'https://images.unsplash.com',
+              )}
+              className="object-cover"
+            />
+          </div>
+        )}
         <ContentCardTitle
           as="h3"
           href={post.href}
@@ -78,67 +91,12 @@ function PostItem({ post }: { post: Post }) {
   )
 }
 
-function FeaturedPost({ post }: { post: Post }) {
-  const cover =
-    post.coverImage ??
-    (post.type === 'video'
-      ? `https://i.ytimg.com/vi/${post.youtubeId}/maxresdefault.jpg`
-      : null)
-  return (
-    <ContentCard as="article" className="w-full">
-      <div className="relative z-10 mb-5 aspect-3/2 w-full overflow-hidden rounded-xl bg-muted ring-1 ring-border">
-        {cover ? (
-          <Image
-            src={cover}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-            unoptimized={cover.startsWith('https://i.ytimg.com')}
-            className="object-cover"
-          />
-        ) : null}
-      </div>
-      <ContentCardTitle
-        href={post.href}
-        className="[&>a>span:last-child]:line-clamp-2"
-      >
-        {post.title}
-      </ContentCardTitle>
-      <time
-        dateTime={post.date}
-        className="relative z-10 mt-2 text-sm text-muted-foreground"
-      >
-        {formatDate(post.date)}
-      </time>
-      <ContentCardCta>View post</ContentCardCta>
-    </ContentCard>
-  )
-}
-
-function subscribeToLargeScreen(callback: () => void) {
-  const query = window.matchMedia('(min-width: 1024px)')
-  query.addEventListener('change', callback)
-  return () => query.removeEventListener('change', callback)
-}
-function getLargeScreenSnapshot() {
-  return window.matchMedia('(min-width: 1024px)').matches
-}
-function getServerSnapshot() {
-  return false
-}
-
 export function PostsList({ posts }: { posts: Array<Post> }) {
-  const isLargeScreen = useSyncExternalStore(
-    subscribeToLargeScreen,
-    getLargeScreenSnapshot,
-    getServerSnapshot,
-  )
-  const featuredCount = isLargeScreen ? 3 : 2
   let searchParams = useSearchParams()
   let filter = parseFilter(searchParams.get('type'))
   let filteredPosts =
     filter === 'all' ? posts : posts.filter((post) => post.type === filter)
-  let postsByYear = groupPostsByYear(filteredPosts.slice(featuredCount))
+  let postsByYear = groupPostsByYear(filteredPosts)
 
   return (
     <div className="space-y-20">
@@ -153,12 +111,6 @@ export function PostsList({ posts }: { posts: Array<Post> }) {
           >
             {item.label}
           </Button>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredPosts.slice(0, featuredCount).map((post) => (
-          <FeaturedPost key={post.href} post={post} />
         ))}
       </div>
 

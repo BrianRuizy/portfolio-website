@@ -64,6 +64,9 @@ export function PostLayout({
                     height={630}
                     className="h-auto w-full object-cover"
                     sizes="(min-width: 768px) 42rem, 100vw"
+                    unoptimized={post.coverImage.startsWith(
+                      'https://images.unsplash.com',
+                    )}
                     priority
                   />
                 </div>

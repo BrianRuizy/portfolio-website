@@ -62,9 +62,13 @@ function MobileNavigation({ className }: { className?: string }) {
       ? 'Home'
       : pathname.startsWith('/about')
         ? 'About'
-        : pathname.startsWith('/writing')
-          ? 'Writing'
-          : 'Menu'
+        : pathname.startsWith('/projects')
+          ? 'Projects'
+          : pathname.startsWith('/gear')
+            ? 'Gear'
+            : pathname.startsWith('/writing')
+              ? 'Writing'
+              : 'Menu'
   let [pathnameWhenOpen, setPathnameWhenOpen] = useState(pathname)
   let reduceMotion = useReducedMotion()
   let titleId = useId()
@@ -293,8 +297,14 @@ function MobileNavigation({ className }: { className?: string }) {
                       <MobileNavItem href="/about" onNavigate={closeMenu}>
                         About
                       </MobileNavItem>
+                      <MobileNavItem href="/projects" onNavigate={closeMenu}>
+                        Projects
+                      </MobileNavItem>
                       <MobileNavItem href="/writing" onNavigate={closeMenu}>
                         Writing
+                      </MobileNavItem>
+                      <MobileNavItem href="/gear" onNavigate={closeMenu}>
+                        Gear
                       </MobileNavItem>
                     </ul>
                   </nav>
@@ -317,7 +327,9 @@ function NavItem({
 }) {
   let pathname = usePathname()
   let isActive =
-    pathname === href || (href === '/writing' && isWritingPath(pathname))
+    pathname === href ||
+    pathname.startsWith(`${href}/`) ||
+    (href === '/writing' && isWritingPath(pathname))
 
   return (
     <li>
@@ -349,7 +361,9 @@ function DesktopNavigation({
         </div>
         <ul className="relative z-10 flex px-3 text-sm font-medium text-foreground">
           <NavItem href="/about">About</NavItem>
+          <NavItem href="/projects">Projects</NavItem>
           <NavItem href="/writing">Writing</NavItem>
+          <NavItem href="/gear">Gear</NavItem>
         </ul>
       </div>
     </nav>

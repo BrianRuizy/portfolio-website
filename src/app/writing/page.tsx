@@ -9,7 +9,7 @@ const heroTitle = 'Notes, ideas, and things I have learned.'
 
 export const metadata = createPageMetadata({
   title: 'Writing',
-  description: 'Articles and notes by Your Name.',
+  description: 'Articles, project notes, and ideas by Brian Ruiz.',
   heroTitle,
 })
 
@@ -19,7 +19,7 @@ export default async function Writing() {
   return (
     <SimpleLayout
       title={heroTitle}
-      intro="A place for articles, project notes, and ideas worth sharing. Replace this sample copy with a short description of your writing."
+      intro="Notes on the products I’m building, technology I’m exploring, and the occasional behind-the-scenes look at making things."
     >
       <Suspense fallback={null}>
         <PostsList posts={posts} />
