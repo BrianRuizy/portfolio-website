@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import { LinkIcon } from '@heroicons/react/24/outline'
 
 import {
@@ -7,48 +7,61 @@ import {
   ContentCardTitle,
 } from '@/components/ContentCard'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { iconChromeClassName } from '@/lib/iconChrome'
 import { createPageMetadata } from '@/lib/metadata'
+import { cn } from '@/lib/utils'
 import beamLogo from '@/images/logos/beam-dark.png'
 import studioLogo from '@/images/logos/animaginary.svg'
 import dashboardLogo from '@/images/logos/open-shuttle.svg'
 import fieldNotesLogo from '@/images/logos/field-notes.svg'
 
-const projects = [
+interface Project {
+  name: string
+  description: string
+  link: { href: string; label: string }
+  logo?: ImageProps['src']
+}
+
+const projects: Array<Project> = [
   {
     name: 'Beam',
     description:
       'A calm space for tasks, projects, notes, and your day, built for Apple devices.',
-    href: 'https://joinbeam.app',
-    label: 'joinbeam.app',
+    link: {
+      href: 'https://joinbeam.app',
+      label: 'joinbeam.app',
+    },
     logo: beamLogo,
-    logoBackground: 'bg-card dark:bg-muted',
   },
   {
     name: 'Studio UI Kit',
     description:
       'A flexible component library for building clear, accessible product interfaces.',
-    href: 'https://github.com/yourname/studio-ui-kit',
-    label: 'github.com/yourname/studio-ui-kit',
+    link: {
+      href: 'https://github.com/yourname/studio-ui-kit',
+      label: 'github.com/yourname/studio-ui-kit',
+    },
     logo: studioLogo,
-    logoBackground: 'bg-card dark:bg-muted',
   },
   {
     name: 'Orbit Dashboard',
     description:
       'A project workspace for organizing work, tracking progress, and sharing updates.',
-    href: 'https://github.com/yourname/orbit-dashboard',
-    label: 'github.com/yourname/orbit-dashboard',
+    link: {
+      href: 'https://github.com/yourname/orbit-dashboard',
+      label: 'github.com/yourname/orbit-dashboard',
+    },
     logo: dashboardLogo,
-    logoBackground: 'bg-card dark:bg-muted',
   },
   {
     name: 'Field Notes',
     description:
       'A quiet space for collecting ideas, observations, and inspiration, then shaping them into something useful.',
-    href: 'https://github.com/yourname/field-notes',
-    label: 'github.com/yourname/field-notes',
+    link: {
+      href: 'https://github.com/yourname/field-notes',
+      label: 'github.com/yourname/field-notes',
+    },
     logo: fieldNotesLogo,
-    logoBackground: 'bg-card dark:bg-muted',
   },
 ]
 
@@ -83,26 +96,37 @@ export default function Projects() {
           <li key={project.name}>
             <ContentCard className="h-full">
               <div
-                className={`relative z-10 flex size-12 flex-none items-center justify-center overflow-hidden rounded-full ring-1 ring-border ${project.logoBackground}`}
+                className={cn(
+                  'relative z-20 flex size-12 items-center justify-center rounded-full text-sm font-semibold text-foreground',
+                  iconChromeClassName,
+                )}
               >
-                <Image
-                  src={project.logo}
-                  alt=""
-                  width={32}
-                  height={32}
-                  unoptimized
-                  className="size-8 rounded-full object-contain"
-                />
+                {project.logo ? (
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="size-8 rounded-full"
+                    unoptimized
+                  />
+                ) : (
+                  project.name.slice(0, 2).toUpperCase()
+                )}
               </div>
-              <ContentCardTitle href={project.href} external className="mt-6">
+              <ContentCardTitle
+                href={project.link.href}
+                external={!project.link.href.startsWith('/')}
+                className="mt-6"
+              >
                 {project.name}
               </ContentCardTitle>
-              <ContentCardDescription className="text-pretty">
+              <ContentCardDescription className="line-clamp-3 text-pretty">
                 {project.description}
               </ContentCardDescription>
-              <p className="relative z-20 mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                <LinkIcon className="size-4 flex-none" aria-hidden />
-                {project.label}
+              <p className="relative z-20 mt-6 flex items-center gap-2 text-sm font-medium text-muted-foreground transition group-hover:text-accent">
+                <LinkIcon className="size-4 flex-none" />
+                <span className="line-clamp-1">{project.link.label}</span>
               </p>
             </ContentCard>
           </li>
