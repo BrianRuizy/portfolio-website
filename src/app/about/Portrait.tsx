@@ -33,7 +33,6 @@ export function Portrait() {
         caption="Portrait in Central Park"
         filename="me.jpeg"
         sizes="(min-width: 1280px) 28rem, (min-width: 768px) calc((100vw - 12rem) / 2), 18rem"
-        quality={100}
         aspectClassName="aspect-[4/5]"
         className="w-full sm:w-full"
         rotationClassName="rotate-3"

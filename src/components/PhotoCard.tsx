@@ -18,7 +18,6 @@ type PhotoCardProps = {
   className?: string
   rotationClassName?: string
   sizes?: string
-  quality?: number
   isDraggable?: boolean
   index?: number
 }
@@ -33,7 +32,6 @@ export function PhotoCard({
   className,
   rotationClassName,
   sizes = '(min-width: 640px) 18rem, 11rem',
-  quality,
   isDraggable = true,
   index = 0,
 }: PhotoCardProps) {
@@ -116,7 +114,6 @@ export function PhotoCard({
               alt=""
               fill
               sizes={sizes}
-              quality={quality}
               className="pointer-events-none object-cover"
               style={{ objectPosition: objectPosition ?? 'center' }}
               draggable={false}
@@ -135,7 +132,7 @@ export function PhotoCard({
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl sm:rounded-2xl"
               >
-                <div className="absolute inset-0 bg-[url('/photopaper-clean.png')] bg-cover opacity-80" />
+                <div className="absolute inset-0 bg-[url('/photopaper-clean.webp')] bg-cover opacity-80" />
               </div>
               <div className="relative z-10 px-6">
                 <div className="flex flex-col gap-0 font-ticketing uppercase">
