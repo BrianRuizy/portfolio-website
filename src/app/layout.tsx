@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     ...siteTwitterMetadata,
   },
-  icons: { icon: '/favicon/favicon.svg' },
+  icons: { icon: '/favicon/avatar.png' },
 }
 
 export default function RootLayout({

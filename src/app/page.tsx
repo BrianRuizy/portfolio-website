@@ -43,21 +43,21 @@ const experience = [
     role: 'Systems Engineer',
     dates: '1987 — 1991',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Pan_Am_Logo.svg',
-    logoBackground: 'bg-white',
+    logoBackground: 'bg-white p-1',
   },
   {
     company: 'NeXT',
     role: 'Software Engineer',
     dates: '1994 — 1997',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg',
-    logoBackground: 'bg-white',
+    logoBackground: 'bg-white p-1',
   },
   {
     company: 'Twitter',
     role: 'Software Engineer',
     dates: '2009 — 2023',
-    logo: 'https://upload.wikimedia.org/wikipedia/sco/9/9f/Twitter_bird_logo_2012.svg',
-    logoBackground: 'bg-[#1DA1F2]',
+    logo: '/logos/twitter-bird.svg',
+    logoBackground: 'bg-[#1DA1F2] p-1.5',
   },
 ]
 
@@ -144,7 +144,7 @@ export default async function Home() {
                       className="flex items-center gap-3 text-sm"
                     >
                       <div
-                        className={`relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full p-1.5 shadow-md shadow-foreground/5 ring-1 ring-border ${item.logoBackground}`}
+                        className="relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full bg-background p-1.5 shadow-md shadow-foreground/5 ring-1 ring-border"
                       >
                         <Image
                           src={item.logo}
@@ -152,7 +152,7 @@ export default async function Home() {
                           width={32}
                           height={32}
                           unoptimized
-                          className="size-full object-contain"
+                          className={`size-full rounded-full object-contain ${item.logoBackground}`}
                         />
                       </div>
                       <div className="min-w-0 flex-1">
