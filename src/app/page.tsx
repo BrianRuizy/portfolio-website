@@ -37,17 +37,13 @@ function LatestPost({ post }: { post: Post }) {
 }
 
 const experience = [
+  { company: 'NeXT', role: 'Software Engineer', dates: '1994 — 1997' },
   {
-    company: 'Northstar Labs',
-    role: 'Senior Software Engineer',
-    dates: '2023 — Present',
-  },
-  {
-    company: 'Fieldwork Studio',
+    company: 'Sun Microsystems',
     role: 'Software Engineer',
-    dates: '2020 — 2023',
+    dates: '1998 — 2004',
   },
-  { company: 'Common Thread', role: 'Web Developer', dates: '2018 — 2020' },
+  { company: 'Palm', role: 'Product Engineer', dates: '2005 — 2010' },
 ]
 
 const socials = [
@@ -80,20 +76,6 @@ export default async function Home() {
             products. Based in New York City, usually working on an app, a side
             project, or a new video.
           </p>
-          <div className="mt-6 flex gap-6 text-sm font-medium">
-            <Link href="/about" className="link-underline">
-              About
-            </Link>
-            <Link href="/projects" className="link-underline">
-              Projects
-            </Link>
-            <Link href="/writing" className="link-underline">
-              Writing
-            </Link>
-            <Link href="/gear" className="link-underline">
-              Gear
-            </Link>
-          </div>
           <div className="mt-6 flex gap-4">
             {socials.map(({ href, label, Icon }) => (
               <Link
