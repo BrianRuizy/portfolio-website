@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
@@ -17,7 +16,6 @@ import { Container } from '@/components/Container'
 import { Halo } from '@/components/Halo'
 import { PageEnter } from '@/components/PageEnter'
 import { DialogOverlay } from '@/components/Dialog'
-import avatarImage from '@/images/brian-avatar.jpg'
 import {
   bouncy,
   bouncySpring,
@@ -66,11 +64,7 @@ function MobileNavigation({ className }: { className?: string }) {
         ? 'About'
         : pathname.startsWith('/writing')
           ? 'Writing'
-          : pathname.startsWith('/projects')
-            ? 'Projects'
-            : pathname.startsWith('/gear') || pathname.startsWith('/uses')
-              ? 'Gear'
-              : 'Menu'
+          : 'Menu'
   let [pathnameWhenOpen, setPathnameWhenOpen] = useState(pathname)
   let reduceMotion = useReducedMotion()
   let titleId = useId()
@@ -302,12 +296,6 @@ function MobileNavigation({ className }: { className?: string }) {
                       <MobileNavItem href="/writing" onNavigate={closeMenu}>
                         Writing
                       </MobileNavItem>
-                      <MobileNavItem href="/projects" onNavigate={closeMenu}>
-                        Projects
-                      </MobileNavItem>
-                      <MobileNavItem href="/gear" onNavigate={closeMenu}>
-                        Gear
-                      </MobileNavItem>
                     </ul>
                   </nav>
                 </motion.div>
@@ -362,8 +350,6 @@ function DesktopNavigation({
         <ul className="relative z-10 flex px-3 text-sm font-medium text-foreground">
           <NavItem href="/about">About</NavItem>
           <NavItem href="/writing">Writing</NavItem>
-          <NavItem href="/projects">Projects</NavItem>
-          <NavItem href="/gear">Gear</NavItem>
         </ul>
       </div>
     </nav>
@@ -485,17 +471,15 @@ function Avatar({
       className={cn(className, 'pointer-events-auto')}
       {...props}
     >
-      <Image
-        src={avatarImage}
-        alt="Brian Ruiz"
-        quality={100}
-        sizes={large ? '4rem' : '2.25rem'}
+      <span
+        aria-hidden="true"
         className={cn(
-          'rounded-full bg-muted object-cover',
-          large ? 'h-16 w-16' : 'h-9 w-9',
+          'flex items-center justify-center rounded-full bg-accent/10 font-semibold text-accent',
+          large ? 'h-16 w-16 text-xl' : 'h-9 w-9 text-sm',
         )}
-        priority
-      />
+      >
+        YN
+      </span>
     </Link>
   )
 }

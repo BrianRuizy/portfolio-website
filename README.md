@@ -1,6 +1,6 @@
-# Brian Ruiz
+# Personal Portfolio Starter
 
-Personal site for [b-r.io](https://b-r.io) — portfolio, writing, projects, and gear.
+A customizable personal portfolio and writing site built with Next.js. Replace the sample copy, profile details, and example article with your own content.
 
 ## Stack
 
@@ -12,13 +12,18 @@ Personal site for [b-r.io](https://b-r.io) — portfolio, writing, projects, and
 ## Getting started
 
 1. `npm install`
-2. Copy `.env.example` to `.env.local` and fill in values
+2. Copy `.env.example` to `.env.local` and set your site URL
 3. `npm run dev`
 
 ## Environment
 
-| Variable | Purpose |
-| --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (OG, sitemap, RSS) |
-| `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` | Mapbox GL (blog map demo) |
-| `CONVERTKIT_API_KEY` / `CONVERTKIT_FORM_ID` | Newsletter signup |
+| Variable               | Purpose                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL used for metadata, sitemap, and RSS |
+
+## Content
+
+- Update `src/lib/site-copy.ts` and `src/app/page.tsx` for the homepage.
+- Replace the sample page in `src/app/about/page.tsx`.
+- Add a `post.ts`, `page.tsx`, and `content.mdx` under `src/app/writing/<slug>/` for each article.
+- Set your site URL in `.env.local` before deploying.

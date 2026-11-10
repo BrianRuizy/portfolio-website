@@ -63,11 +63,7 @@ function getPostShareImage(post: PostMeta) {
 export function createPostMetadata(post: PostMeta): Metadata {
   const shareImage = getPostShareImage(post)
   const openGraphImages = shareImage
-    ? createCoverOpenGraphImages(
-        shareImage.url,
-        post.title,
-        shareImage.size,
-      )
+    ? createCoverOpenGraphImages(shareImage.url, post.title, shareImage.size)
     : createOpenGraphImages(post.title)
   const twitterImage = shareImage?.url
 
@@ -91,11 +87,10 @@ export function createPostMetadata(post: PostMeta): Metadata {
 
 async function importPost(postFilename: string): Promise<Post> {
   let { post } = (await import(`../app/writing/${postFilename}`)) as {
-    default: React.ComponentType
     post: PostMeta
   }
 
-  let slug = postFilename.replace(/(\/page)?\.mdx$/, '')
+  let slug = postFilename.replace(/\/post\.ts$/, '')
 
   return {
     slug,
@@ -105,7 +100,7 @@ async function importPost(postFilename: string): Promise<Post> {
 }
 
 export async function getAllPosts() {
-  let postFilenames = await glob('*/page.mdx', {
+  let postFilenames = await glob('*/post.ts', {
     cwd: './src/app/writing',
   })
 

@@ -1,11 +1,7 @@
-'use client'
-
-import { useContext } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { ArrowUturnLeftIcon } from '@heroicons/react/24/outline'
 
-import { AppContext } from '@/app/providers'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { PageEnter } from '@/components/PageEnter'
@@ -24,23 +20,17 @@ export function PostLayout({
   showDescription?: boolean
   showCover?: boolean
 }) {
-  let router = useRouter()
-  let { previousPathname } = useContext(AppContext)
-
   return (
     <Container className="mt-16 lg:mt-32">
       <div className="xl:relative">
         <div className="mx-auto max-w-2xl">
-          {previousPathname && (
-            <button
-              type="button"
-              onClick={() => router.back()}
-              aria-label="Go back to writing"
-              className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-md ring-1 shadow-foreground/5 ring-border transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0 dark:bg-muted dark:ring-0 dark:hover:ring-1 dark:hover:ring-foreground/20"
-            >
-              <ArrowUturnLeftIcon className="size-4 text-muted-foreground transition group-hover:text-foreground" />
-            </button>
-          )}
+          <Link
+            href="/writing"
+            aria-label="Back to writing"
+            className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-md ring-1 shadow-foreground/5 ring-border transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0 dark:bg-muted dark:ring-0 dark:hover:ring-1 dark:hover:ring-foreground/20"
+          >
+            <ArrowUturnLeftIcon className="size-4 text-muted-foreground transition group-hover:text-foreground" />
+          </Link>
           <article>
             <PageEnter as="header" className="flex flex-col">
               <h1 className="mt-6 text-4xl font-semibold tracking-tight text-pretty text-foreground sm:text-5xl">

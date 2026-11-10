@@ -5,12 +5,11 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { createPageMetadata } from '@/lib/metadata'
 import { getAllPosts } from '@/lib/posts'
 
-const heroTitle = 'Writing on coding, productivity, and life updates.'
+const heroTitle = 'Notes, ideas, and things I have learned.'
 
 export const metadata = createPageMetadata({
   title: 'Writing',
-  description:
-    'Articles and videos on software engineering, design, productivity, and life in New York City.',
+  description: 'Articles and notes by Your Name.',
   heroTitle,
 })
 
@@ -20,7 +19,7 @@ export default async function Writing() {
   return (
     <SimpleLayout
       title={heroTitle}
-      intro="Blog posts covering the work I do, the tools I use, and the occasional life update. Some technical, some personal, all from my own experience."
+      intro="A place for articles, project notes, and ideas worth sharing. Replace this sample copy with a short description of your writing."
     >
       <Suspense fallback={null}>
         <PostsList posts={posts} />

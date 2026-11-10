@@ -78,6 +78,6 @@ export const siteOgImageTitle = homeHeroTitle
 export const siteOpenGraphImages = createOpenGraphImages(siteOgImageTitle)
 
 export const siteTwitterMetadata = createTwitterMetadata(
-  'Brian Ruiz - Software engineer and creator in NYC',
+  'Your Name - Portfolio',
   createOgImageUrl(siteOgImageTitle),
 )
