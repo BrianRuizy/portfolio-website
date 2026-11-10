@@ -119,39 +119,4 @@ export const toolGroups: ToolGroup[] = [
       },
     ],
   },
-  {
-    title: 'Home',
-    tools: [
-      {
-        title: 'Apple TV 4K',
-        href: 'https://www.apple.com/apple-tv-4k/',
-        description:
-          'What actually drives the living-room TV. Sports, movies, and YouTube.',
-      },
-      {
-        title: 'Cowboy Classic v4',
-        href: 'https://cowboy.bike/',
-        description:
-          "My e-bike. I love the design. From a distance it still looks like an ordinary classic bike, but it's perfect for zipping around the city.",
-      },
-      {
-        title: 'LG C4 OLED',
-        href: 'https://amzn.to/3ZRVet8',
-        description:
-          'The living-room TV. I have the 55 inch, which feels perfect, not too big, not too small. Pair it with a Sonos Beam for sound.',
-      },
-      {
-        title: 'Philips Hue',
-        href: 'https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-75w-a19-e26-smart-bulb/046677591168',
-        description:
-          'Started with a single bulb in a lamp, then added a couple around the space for nice ambience.',
-      },
-      {
-        title: 'Sonos Era 100',
-        href: 'https://www.sonos.com/en-us/shop/era-100',
-        description:
-          "In the room for rich, full jamming sessions when I don't want headphones.",
-      },
-    ],
-  },
 ]

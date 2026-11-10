@@ -6,7 +6,6 @@ import { PageEnter } from '@/components/PageEnter'
 import {
   GitHubIcon,
   InstagramIcon,
-  LinkedInIcon,
   XIcon,
   YouTubeIcon,
 } from '@/components/SocialIcons'
@@ -103,13 +102,6 @@ export default function About() {
               className="mt-4"
             >
               Follow on GitHub
-            </SocialLink>
-            <SocialLink
-              href="https://www.linkedin.com/in/brianruizy/"
-              icon={LinkedInIcon}
-              className="mt-4"
-            >
-              Connect on LinkedIn
             </SocialLink>
             <SocialLink
               href="mailto:partners@b-r.io"
