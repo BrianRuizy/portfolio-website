@@ -81,7 +81,7 @@ export default function Projects() {
       >
         {projects.map((project) => (
           <li key={project.name}>
-            <ContentCard className="h-full rounded-2xl bg-card p-6 shadow-md shadow-foreground/5 dark:bg-muted">
+            <ContentCard className="h-full">
               <div
                 className={`relative z-10 flex size-12 flex-none items-center justify-center overflow-hidden rounded-full ring-1 ring-border ${project.logoBackground}`}
               >
