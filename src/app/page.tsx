@@ -19,6 +19,7 @@ import {
   YouTubeIcon,
 } from '@/components/SocialIcons'
 import { formatDate } from '@/lib/formatDate'
+import { iconChromeClassName } from '@/lib/iconChrome'
 import { getAllPosts, type Post } from '@/lib/posts'
 import { homeHeroTitle } from '@/lib/site-copy'
 
@@ -43,21 +44,24 @@ const experience = [
     role: 'Systems Engineer',
     dates: '1987 — 1991',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Pan_Am_Logo.svg',
-    logoBackground: 'bg-white p-1',
+    logoBackground: 'bg-transparent',
+    logoMarkClassName: 'p-0',
   },
   {
     company: 'NeXT',
     role: 'Software Engineer',
     dates: '1994 — 1997',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/NeXT_logo.svg',
-    logoBackground: 'bg-white p-1',
+    logoBackground: 'bg-white',
+    logoMarkClassName: 'p-1.5',
   },
   {
     company: 'Twitter',
     role: 'Software Engineer',
     dates: '2009 — 2023',
     logo: '/logos/twitter-bird.svg',
-    logoBackground: 'bg-[#1DA1F2] p-1.5',
+    logoBackground: 'bg-[#1DA1F2]',
+    logoMarkClassName: 'p-1.5',
   },
 ]
 
@@ -144,16 +148,20 @@ export default async function Home() {
                       className="flex items-center gap-3 text-sm"
                     >
                       <div
-                        className="relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full bg-background p-1.5 shadow-md shadow-foreground/5 ring-1 ring-border"
+                        className={`relative flex size-10 flex-none items-center justify-center overflow-hidden rounded-full p-1.5 ${iconChromeClassName}`}
                       >
-                        <Image
-                          src={item.logo}
-                          alt=""
-                          width={32}
-                          height={32}
-                          unoptimized
-                          className={`size-full rounded-full object-contain ${item.logoBackground}`}
-                        />
+                        <span
+                          className={`flex size-full items-center justify-center overflow-hidden rounded-full ${item.logoBackground}`}
+                        >
+                          <Image
+                            src={item.logo}
+                            alt=""
+                            width={32}
+                            height={32}
+                            unoptimized
+                            className={`size-full rounded-full object-contain ${item.logoMarkClassName}`}
+                          />
+                        </span>
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="font-medium text-foreground">
