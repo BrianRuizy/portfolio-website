@@ -2,6 +2,8 @@
 
 A customizable personal portfolio and writing site built with Next.js. It includes project and gear lists, a photo gallery, experience, a newsletter form, and three sample posts. Replace the sample copy and details with your own.
 
+See my portfolio at [b-r.io](https://b-r.io).
+
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router) + TypeScript
